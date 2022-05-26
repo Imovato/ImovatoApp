@@ -1,23 +1,79 @@
 import 'package:flutter/material.dart';
-import 'package:imovatoapp/screens/home_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Imovato App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        primaryColor: const Color.fromARGB(255, 33, 41, 57),
-      ),
-      debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
-    );
+        home: Scaffold(
+            appBar: AppBar(
+              backgroundColor: Colors.red,
+            ),
+            body: SafeArea(
+              child: Column(
+
+                children: [
+                  Container(
+                    color: Colors.green,
+                    child: const Image(
+                        width: 200,
+                        image: AssetImage('assets/casa-chique1.png'
+                        )),
+      
+                  ), 
+                  Text('ola mundo')
+                  
+                ],
+                // child: Center(
+                //     child: Image(
+                //   image: AssetImage('assets/casa-chique1.png'),
+                // )),
+              ),
+
+            )
+
+          //     Image(
+          //   image: AssetImage('assets/casa-chique1.png'),
+          // ),
+
+          // ignore: prefer_const_literals_to_create_immutables
+          //     gradient: LinearGradient(colors: [
+          //   Color.fromAR9GB(255, 33, 41, 57),
+          //   Color.fromARGB(255, 56, 65, 82),
+          // ], begin: Alignment.topLeft, end: Alignment.bottomRight)),
+          // child: Image(
+          //   image: AssetImage('assets/casa-chique1.png'),
+          //   width: 500,
+          //   height: 500,
+        ));
+
+    // return Stack(
+    //   children: <Widget>[
+    //     _buildBodyBack(),
+    //     CustomScrollView(
+    //       // ignore: prefer_const_literals_to_create_immutables
+    //       slivers: <Widget>[
+    //         SliverAppBar(
+    //           floating: true,
+    //           snap: true,
+    //           backgroundColor: Colors.red,
+    //           elevation: 0.0,
+    //           flexibleSpace: FlexibleSpaceBar(
+    //             title: Text('Novidades'),
+    //             centerTitle: true,
+    //           ),
+    //         ),
+    //
+    //         // Center(child: Image(image: AssetImage('assets/casa-chique1.png')))
+    //         // Image(image: AssetImage('assets/casa-chique1.png'))
+    //       ],
+    //     )
+    //   ],
+    // );
   }
 }
+
