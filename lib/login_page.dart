@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:imovatoapp/controllers/login_controller.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -11,8 +12,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  String email = '';
-  String senha = '';
+  final LoginController _controller = LoginController();
 
   final _formKey = GlobalKey<FormState>();
 
@@ -62,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 TextFormField(
                   onChanged: (text) {
-                    email = text;
+                    _controller.setEmail(text);
                   },
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
@@ -87,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 TextFormField(
                   onChanged: (text) {
-                    senha = text;
+                    _controller.setSenha(text);
                   },
                   obscureText: true,
                   decoration: InputDecoration(
@@ -108,31 +108,33 @@ class _LoginPageState extends State<LoginPage> {
                   },
                 ),
                 SizedBox(
-                  height: 50.0,
+                  height: 30.0,
                 ),
-                RaisedButton(
+                MaterialButton(
+                  color: Color.fromARGB(255, 33, 41, 57),
+                  disabledColor: Colors.white,
                   padding: EdgeInsets.all(15),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(15.0))),
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
+                      _controller.login();
                     } else {
                       return;
                     }
                   },
-                  color: Color.fromARGB(255, 245, 245, 245),
                   child: Text('LOGIN',
                       style: GoogleFonts.lato(
-                        color: Color.fromARGB(255, 97, 97, 97).withOpacity(0.5),
+                        color: Colors.white,
                         fontSize: 20,
                       )),
                 ),
                 SizedBox(
-                  height: 50.0,
+                  height: 40.0,
                 ),
                 Align(
                   alignment: Alignment.center,
-                  child: FlatButton(
+                  child: MaterialButton(
                     onPressed: () {},
                     child: Text('ou cadastre-se aqui',
                         style: GoogleFonts.robotoMono(
@@ -141,12 +143,6 @@ class _LoginPageState extends State<LoginPage> {
                         )),
                   ),
                 ),
-                // Text('ou cadastre-se aqui',
-                //     textAlign: TextAlign.center,
-                //     style: GoogleFonts.robotoMono(
-                //       color: Colors.blue,
-                //       fontSize: 20,
-                //     )),
               ],
             ),
             // mainAxisAlignment: MainAxisAlignment.center,
