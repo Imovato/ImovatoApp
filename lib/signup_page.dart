@@ -160,7 +160,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 SizedBox(
                   height: 29.0,
                 ),
-                RaisedButton(
+                MaterialButton(
                   padding: EdgeInsets.all(15),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(15.0))),
@@ -170,10 +170,10 @@ class _SignUpPageState extends State<SignUpPage> {
                       return;
                     }
                   },
-                  color: Color.fromARGB(255, 245, 245, 245),
+                  color: Color.fromARGB(255, 33, 41, 57),
                   child: Text('Criar Conta',
                       style: GoogleFonts.lato(
-                        color: Color.fromARGB(255, 97, 97, 97).withOpacity(0.5),
+                        color: Colors.white,
                         fontSize: 20,
                       )),
                 ),
