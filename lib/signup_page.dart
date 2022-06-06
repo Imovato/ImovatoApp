@@ -1,18 +1,18 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:imovatoapp/controllers/login_controller.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
-  final LoginController _controller = LoginController();
+class _SignUpPageState extends State<SignUpPage> {
+  String email = '';
+  String senha = '';
 
   final _formKey = GlobalKey<FormState>();
 
@@ -46,12 +46,12 @@ class _LoginPageState extends State<LoginPage> {
                 Image.asset(
                   'assets/logo.png',
                   width: 130,
-                  height: 130,
+                  height: 90,
                 ),
                 SizedBox(
                   height: 15.0,
                 ),
-                Text('Entrar',
+                Text('Crie uma conta',
                     textAlign: TextAlign.center,
                     style: GoogleFonts.robotoMono(
                       color: Colors.white,
@@ -61,8 +61,54 @@ class _LoginPageState extends State<LoginPage> {
                   height: 15.0,
                 ),
                 TextFormField(
+                  onChanged: (text) {},
+                  keyboardType: TextInputType.name,
+                  decoration: InputDecoration(
+                    fillColor: Color.fromARGB(255, 255, 255, 255),
+                    filled: true,
+                    hintText: 'Nome Completo',
+                    hintStyle: GoogleFonts.lato(
+                      color: Color.fromARGB(255, 97, 97, 97).withOpacity(0.5),
+                      fontSize: 20,
+                    ),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15)),
+                  ),
+                  validator: (text) {
+                    if (text!.isEmpty) {
+                      return 'Nome inválido';
+                    }
+                  },
+                ),
+                SizedBox(
+                  height: 15.0,
+                ),
+                TextFormField(
+                  onChanged: (text) {},
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    fillColor: Color.fromARGB(255, 255, 255, 255),
+                    filled: true,
+                    hintText: 'Endereço',
+                    hintStyle: GoogleFonts.lato(
+                      color: Color.fromARGB(255, 97, 97, 97).withOpacity(0.5),
+                      fontSize: 20,
+                    ),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15)),
+                  ),
+                  validator: (text) {
+                    if (text!.isEmpty || text.length < 6) {
+                      return 'Endereço inválido';
+                    }
+                  },
+                ),
+                SizedBox(
+                  height: 15.0,
+                ),
+                TextFormField(
                   onChanged: (text) {
-                    _controller.setEmail(text);
+                    email = text;
                   },
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
@@ -87,9 +133,13 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 TextFormField(
                   onChanged: (text) {
-                    _controller.setSenha(text);
+                    senha = text;
                   },
                   obscureText: true,
+                  style: GoogleFonts.lato(
+                    color: Color.fromARGB(255, 97, 97, 97).withOpacity(0.5),
+                    fontSize: 20,
+                  ),
                   decoration: InputDecoration(
                     fillColor: Color.fromARGB(255, 255, 255, 255),
                     filled: true,
@@ -108,40 +158,24 @@ class _LoginPageState extends State<LoginPage> {
                   },
                 ),
                 SizedBox(
-                  height: 30.0,
+                  height: 29.0,
                 ),
                 MaterialButton(
-                  color: Color.fromARGB(255, 33, 41, 57),
-                  disabledColor: Colors.white,
                   padding: EdgeInsets.all(15),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(15.0))),
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      _controller.login();
                     } else {
                       return;
                     }
                   },
-                  child: Text('LOGIN',
+                  color: Color.fromARGB(255, 33, 41, 57),
+                  child: Text('Criar Conta',
                       style: GoogleFonts.lato(
                         color: Colors.white,
                         fontSize: 20,
                       )),
-                ),
-                SizedBox(
-                  height: 40.0,
-                ),
-                Align(
-                  alignment: Alignment.center,
-                  child: MaterialButton(
-                    onPressed: () {},
-                    child: Text('ou cadastre-se aqui',
-                        style: GoogleFonts.robotoMono(
-                          color: Colors.blue,
-                          fontSize: 20,
-                        )),
-                  ),
                 ),
               ],
             ),
