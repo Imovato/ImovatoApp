@@ -1,8 +1,9 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
-import 'package:imovatoapp/login_page.dart';
-import 'package:imovatoapp/signup_page.dart';
+import 'package:imovatoapp/screens/login_page.dart';
+import 'package:imovatoapp/screens/signup_page.dart';
+import 'screens/find_property.dart';
 
 void main() {
   runApp(MyApp());
