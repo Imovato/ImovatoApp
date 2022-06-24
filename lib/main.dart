@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: SignUpPage(), // troque aq para ver as telas
+      home: FindPropertyPage(), // troque aq para ver as telas
       debugShowCheckedModeBanner: false,
     );
   }
