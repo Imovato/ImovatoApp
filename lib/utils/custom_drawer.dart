@@ -5,6 +5,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:imovatoapp/screens/find_property.dart';
 
 class CustomDrawer extends StatefulWidget {
   const CustomDrawer({Key? key}) : super(key: key);
@@ -60,7 +61,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 ],
               ),
             ),
-            onTap: () {},
+            // onTap: () {
+            //   Navigator.push(context, MaterialPageRoute(builder: (context) => ));
+            // },
           ),
           SizedBox(
             height: 50.0,
@@ -106,7 +109,12 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 ],
               ),
             ),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: ((context) => FindPropertyPage())));
+            },
           ),
         ],
       ),
