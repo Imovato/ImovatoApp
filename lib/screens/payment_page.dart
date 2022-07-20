@@ -139,7 +139,7 @@ class _PaymentPageState extends State<PaymentPage> {
                         decoration: InputDecoration(
                           fillColor: Color.fromARGB(255, 255, 255, 255),
                           filled: true,
-                          hintText: 'Código de Segurança',
+                          hintText: 'CVV',
                           hintStyle: GoogleFonts.lato(
                             color: Color.fromARGB(255, 97, 97, 97)
                                 .withOpacity(0.5),

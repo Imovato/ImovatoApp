@@ -3,6 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:imovatoapp/controllers/login_controller.dart';
+import 'package:imovatoapp/screens/find_property.dart';
+import 'package:imovatoapp/screens/reservations_page.dart';
+import 'package:imovatoapp/screens/signup_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -118,9 +121,13 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius: BorderRadius.all(Radius.circular(15.0))),
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      _controller.login();
-                    } else {
-                      return;
+                      if (_controller.login()) {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => FindPropertyPage(),
+                            ));
+                      }
                     }
                   },
                   child: Text('LOGIN',
@@ -135,7 +142,13 @@ class _LoginPageState extends State<LoginPage> {
                 Align(
                   alignment: Alignment.center,
                   child: MaterialButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SignUpPage(),
+                          ));
+                    },
                     child: Text('ou cadastre-se aqui',
                         style: GoogleFonts.robotoMono(
                           color: Colors.blue,

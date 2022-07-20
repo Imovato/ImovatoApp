@@ -2,9 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:imovatoapp/screens/login_page.dart';
-import 'package:imovatoapp/screens/payment_page.dart';
-import 'package:imovatoapp/screens/signup_page.dart';
-import 'screens/find_property.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: PaymentPage(), // troque aq para ver as telas
+      home: LoginPage(), // troque aq para ver as telas
       debugShowCheckedModeBanner: false,
     );
   }
