@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:imovatoapp/controllers/signup_controller.dart';
+import 'package:imovatoapp/screens/login_page.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -11,8 +13,7 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-  String email = '';
-  String senha = '';
+  final SignUpController _controller = SignUpController();
 
   final _formKey = GlobalKey<FormState>();
 
@@ -61,8 +62,9 @@ class _SignUpPageState extends State<SignUpPage> {
                   height: 15.0,
                 ),
                 TextFormField(
-                  onChanged: (text) {},
-                  keyboardType: TextInputType.name,
+                  onChanged: (text) {
+                    _controller.setNomeCompleto(text);
+                  },
                   decoration: InputDecoration(
                     fillColor: Color.fromARGB(255, 255, 255, 255),
                     filled: true,
@@ -84,8 +86,9 @@ class _SignUpPageState extends State<SignUpPage> {
                   height: 15.0,
                 ),
                 TextFormField(
-                  onChanged: (text) {},
-                  obscureText: true,
+                  onChanged: (text) {
+                    _controller.setEndereco(text);
+                  },
                   decoration: InputDecoration(
                     fillColor: Color.fromARGB(255, 255, 255, 255),
                     filled: true,
@@ -108,7 +111,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
                 TextFormField(
                   onChanged: (text) {
-                    email = text;
+                    _controller.setEmail(text);
                   },
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
@@ -133,7 +136,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
                 TextFormField(
                   onChanged: (text) {
-                    senha = text;
+                    _controller.setSenha(text);
                   },
                   obscureText: true,
                   style: GoogleFonts.lato(
@@ -166,6 +169,12 @@ class _SignUpPageState extends State<SignUpPage> {
                       borderRadius: BorderRadius.all(Radius.circular(15.0))),
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
+                      _controller.createUser();
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: ((context) => LoginPage())));
+                      return;
                     } else {
                       return;
                     }

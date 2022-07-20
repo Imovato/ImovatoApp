@@ -5,7 +5,11 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:imovatoapp/controllers/login_controller.dart';
+import 'package:imovatoapp/mock/user_mock.dart';
 import 'package:imovatoapp/screens/find_property.dart';
+import 'package:imovatoapp/screens/login_page.dart';
+import 'package:imovatoapp/screens/reservations_page.dart';
 
 class CustomDrawer extends StatefulWidget {
   const CustomDrawer({Key? key}) : super(key: key);
@@ -35,10 +39,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   color: Colors.blue,
                   fontSize: 20,
                 )),
-            // onTap: () {
-            //   Navigator.push(context,
-            //       MaterialPageRoute(builder: ((context) => LoginPage())));
-            // },
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: ((context) => LoginPage())));
+            },
           ),
           SizedBox(
             height: 100.0,
@@ -86,7 +90,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 ],
               ),
             ),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: ((context) => ReservationPage())));
+            },
           ),
           SizedBox(
             height: 50.0,
