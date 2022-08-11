@@ -1,12 +1,9 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:imovatoapp/controllers/login_controller.dart';
-import 'package:imovatoapp/mock/user_mock.dart';
+import 'package:imovatoapp/screens/add_property.dart';
 import 'package:imovatoapp/screens/find_property.dart';
 import 'package:imovatoapp/screens/login_page.dart';
 import 'package:imovatoapp/screens/reservations_page.dart';
@@ -121,6 +118,32 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   context,
                   MaterialPageRoute(
                       builder: ((context) => FindPropertyPage())));
+            },
+          ),
+          SizedBox(
+            height: 50.0,
+          ),
+          GestureDetector(
+            child: Container(
+              child: Row(
+                children: [
+                  SvgPicture.asset('assets/add.svg'),
+                  SizedBox(
+                    width: 10.0,
+                  ),
+                  Text(
+                    'Adicionar seu imóvel',
+                    style: GoogleFonts.robotoMono(
+                      color: Colors.white,
+                      fontSize: 20,
+                    ),
+                  )
+                ],
+              ),
+            ),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: ((context) => AddProperty())));
             },
           ),
         ],
